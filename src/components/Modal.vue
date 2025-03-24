@@ -10,8 +10,18 @@
 
 <script>
     export default {
-        name: 'ModalComponent'
+        name: 'ModalComponent',
+        props: {
+            isModal: Boolean,
+            selectedItem: Object
+        },
+        methods: {
+            closeModal() {
+                this.$emit('closeModal')
+            }
+        }
     }
+    
 </script>
 
 <style>

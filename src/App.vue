@@ -20,7 +20,7 @@
     </p>
   </div>
 
-  <Modal />
+  <Modal :isModal="isModal" :selectedItem="selectedItem" @closeModal="closeModal()"/>
 
 </template>
 
@@ -39,14 +39,14 @@ export default {
       isModal: false,
       selectedItem: null,
       data: data,
-      event_text: 'Congrats!'
+      event_text: 'Welcome to Bulletin Board!'
     }
   },
   methods: {
     openModal(item) {
       this.isModal = true;
       this.selectedItem = item
-    },
+      },
     closeModal() {
       this.isModal = false;
     }
