@@ -27,11 +27,13 @@
 </template>
 
 <script>
+  import { colors } from './assets/colors';
+
   export default {
     name: 'App',
     data() {
       return {
-        colors: ["red", "blue", "green", "yellow", "purple", "orange", "pink", "brown", "black", "white"],
+        colors: colors,
         isModal: false,
         modalInfo: '',
         data: [
