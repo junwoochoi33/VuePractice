@@ -1,5 +1,7 @@
 <template>
-  <h1>Bulletin board</h1>
+<Navbar />
+
+  <h1>Bulletin Board</h1>
 
   <div class="item" v-for="(item, i) in data" :key="i">
     <figure>
@@ -18,8 +20,8 @@
 
   <div class="modal" v-if="isModal">
     <div class="inner">
-      <h3>Detail</h3>
-      <p>{{ modalInfo }}</p>
+      <h3>{{ selectedItem.title }}</h3>
+      <p>{{ selectedItem.content }}</p>
       <button @click="closeModal()">close</button>
     </div>
   </div>
@@ -29,6 +31,7 @@
 <script>
   import { colors } from './assets/colors';
   import { data } from './assets/data/board';
+  import Navbar from './components/Navbar.vue';
 
   export default {
     name: 'App',
@@ -36,18 +39,21 @@
       return {
         colors: colors,
         isModal: false,
-        modalInfo: '',
+        selectedItem: null,
         data: data
       }
     },
     methods: {
       openModal(item) {
         this.isModal = true;
-        this.modalInfo = item.content
+        this.selectedItem = item
       },
       closeModal() {
         this.isModal = false;
       }
+    },
+    components: {
+      Navbar: Navbar
     }
   }
 </script>
