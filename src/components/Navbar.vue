@@ -1,7 +1,7 @@
 <template>
     <nav class="navbar">
         <a href="#none">Home</a>
-        <a href="#none">Bulletin Board</a>
+        <a href="#none">Countries</a>
         <a href="#none">About</a>
     </nav>
 

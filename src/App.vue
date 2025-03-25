@@ -2,19 +2,21 @@
 
   <Navbar />
   <Event :text="event_text" />
-  
-  <Items :data="data" @openModal="openModal" />
 
-  <Modal :isModal="isModal" :selectedItem="selectedItem" @closeModal="closeModal"/>
+  <SearchBar />
+  
+  <Countries @openModal="openModal" />
+
+  <Modal :isModal="isModal" :selected="selected" @closeModal="closeModal"/>
 
 </template>
 
 <script>
-import data from './assets/data/board';
 import Navbar from './components/Navbar' 
 import Modal from './components/Modal';
 import Event from './components/Event';
-import Items from './components/Items.vue'
+import SearchBar from './components/SearchBar.vue'
+import Countries from './components/Countries.vue';
 
 
 export default {
@@ -22,18 +24,17 @@ export default {
   data() {
     return {
       isModal: false,
-      selectedItem: null,
-      data: data,
-      event_text: 'Welcome to Bulletin Board!'
+      selected: null,
+      event_text: 'Welcome to Countries!'
     }
   },
   mounted() {
-    console.log("App.vue data:", this.data);
+    
   },
   methods: {
-    openModal(item) {
+    openModal(code) {
       this.isModal = true;
-      this.selectedItem = item
+      this.selected = code
       },
     closeModal() {
       this.isModal = false;
@@ -43,7 +44,8 @@ export default {
     Navbar: Navbar,
     Modal: Modal,
     Event: Event,
-    Items: Items 
+    SearchBar: SearchBar,
+    Countries: Countries,
   }
 }
 </script>
