@@ -1,4 +1,4 @@
-let data = [
+const data = [
           {
             title: 'Title 1',
             regist_time: '2025-03-24 02:07',
